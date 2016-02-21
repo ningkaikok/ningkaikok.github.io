@@ -309,6 +309,147 @@
 
 
     
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/12/03/正则表达式总结/" itemprop="url">
+                  正则表达式总结
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-12-03T17:59:56+08:00" content="2015-12-03">
+              2015-12-03
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/12/03/正则表达式总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/03/正则表达式总结/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li>常用元字符</li>
+</ol>
+<p>\b : 元字符, 代表单词的开头或结尾, 即分界处</p>
+<p>\bhexo\b表示精确地查找hexo这个单词, 不包括hexoa, hexob等等. 如果直接用hexo匹配, 则表示精确匹配这样的字符串: 包含连续的h , e , x , o字符, 比如hexoa , bhexoc等等(正则表达式中的单词表示连续的\w)</p>
+<p>. : 匹配除了换行符\n以外的字符</p>
+<ul>
+<li>: 代表数量, 表示*前面的字符可以连续重复任意次(可以是0次)</li>
+</ul>
+<p>.*连用表示任意数量不含换行的字符</p>
+<ul>
+<li>: 前面的字符可以连续重复任意次(至少1次)</li>
+</ul>
+<p>\d : 匹配数字0 ~ 9</p>
+<p>\s : 匹配空白符: 空格, 全角空格, 制表符, 换行符等</p>
+<p>\w : 匹配字母, 数字, 下划线, 汉字</p>
+<p>^ : 匹配字符串开头(用正则表达式处理多行时匹配行的开始)</p>
+<p>$ : 匹配字符串结尾(处理多行时匹配行尾)</p>
+<ol>
+<li>怎么输入元字符本身</li>
+</ol>
+<p>要输入元字符本身就在字符前面加\<br>输入\符号就输入\</p>
+<ol>
+<li>表示重复含义的限定词</li>
+</ol>
+<ul>
+<li>: 重复0次或更多</li>
+</ul>
+<ul>
+<li>: 重复1次或更多<br>? : 重复0次或者1次<br>{n} : 重复n次<br>{n, } : 重复n次或更多<br>{n, m} : 重复n到m次</li>
+</ul>
+<ol>
+<li>定义自己的字符集合</li>
+</ol>
+<p>用方括号括起要匹配的字符即可, 如[,.!?]就会匹配这四个标点符号中的一个<br>也可以指定字符范围, 如[0-9]表示0到9中的任一位数字, [A-Z]表示任一位大写字母<br>字符范围可以合在一起,如[a-z0-9A-Z]表示任意字母或者数字</p>
+<ol>
+<li>分支条件</li>
+</ol>
+<p>用|把几个规则合在一起,表示任何一个规则满足即可(从左到右进行匹配)</p>
+<ol>
+<li>如何重复多个字符</li>
+</ol>
+<p>用小括号把这多个字符括起来即可, 括号中也可以是正则表达式规则, 此时将重复与规则匹配的字符<br>每个小括号都会有一个序号(从1开始), 用\加序号相当于重新输了一遍前面序号对应的小括号里的规则所匹配的字符<br>可以自己定义序号名: (? &lt; name &gt; 这里是规则), 后面引用时写: `\k&lt; name &gt;</p>
+<ol>
+<li>常用反义代码</li>
+</ol>
+<p>\W : 除了字母, 数字, 下划线, 汉字的字符<br>\S : 除了空白符的字符<br>\D : 除了数字的字符<br>\B : 除了单词开头和结束的位置<br>[^s] : 除了s以外的字符<br>[^abcde] : 除了abcde几个以外的字符</p>
+<ol>
+<li>懒惰限定符</li>
+</ol>
+<p>*? : 重复任意次, 尽可能少重复<br>+? : 至少重读一次, 尽可能少重复<br>?? : 重复0次或者1次, 尽可能少重复<br>{n, m} : 重复n到m次, 尽可能少重复<br>{n,} : 至少重复n次, 尽可能少重复</p>
+
+          
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
 
   </section>
 
@@ -351,7 +492,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -365,7 +506,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
